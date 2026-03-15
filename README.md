@@ -53,7 +53,7 @@ claude
 > /research-pipeline "your topic" — AUTO_PROCEED: false
 > ```
 
-> **Important:** Codex MCP uses the model from `~/.codex/config.toml`, not from skill files. Make sure it says `model = "gpt-5.4"` — otherwise it may default to `gpt-4o`. Run `codex setup` or edit the file directly.
+> **Important:** Codex MCP uses the model from `~/.codex/config.toml`, not from skill files. Make sure it says `model = "gpt-5.4"` (recommended). Other options: `gpt-5.3-codex`, `gpt-5.2-codex`, `o3`. Run `codex setup` or edit the file directly.
 
 See [full setup guide](#%EF%B8%8F-setup) for details and [alternative model combinations](#-alternative-model-combinations) if you don't have Claude/OpenAI API.
 
@@ -778,7 +778,7 @@ Override inline: `/research-lit "topic" — paper library: ~/Zotero/storage/`
 
 | Constant | Default | Description |
 |----------|---------|-------------|
-| `REVIEWER_MODEL` | `gpt-5.4` | OpenAI model used via Codex MCP. Options: `gpt-5.4`, `o3`, `gpt-4o`, etc. |
+| `REVIEWER_MODEL` | `gpt-5.4` | OpenAI model used via Codex MCP. Also available: `gpt-5.3-codex`, `gpt-5.2-codex`, `o3`. See [supported models](https://developers.openai.com/codex/models/) for full list. |
 
 - **Prompt templates** — tailor the review persona and evaluation criteria
 - **`allowed-tools`** — restrict or expand what each skill can do
@@ -918,7 +918,7 @@ This lets GLM (acting as Claude Code) familiarize itself with the skill files an
 <details>
 <summary>Show 6 more completed items</summary>
 
-- [x] **Configurable REVIEWER_MODEL** — all Codex-dependent skills support custom reviewer model (default `gpt-5.4`, also works with `o3`, `gpt-4o`, etc.)
+- [x] **Configurable REVIEWER_MODEL** — all Codex-dependent skills support custom reviewer model (default `gpt-5.4`, also works with `gpt-5.3-codex`, `gpt-5.2-codex`, `o3`, etc.)
 
 - [x] **Local paper library scanning** — `/research-lit` scans local `papers/` and `literature/` directories before external search, leveraging papers you've already read
 - [x] **Idea Discovery pipeline** — `/idea-discovery` orchestrates research-lit → idea-creator → novelty-check → research-review in one command, with pilot experiments on GPU
