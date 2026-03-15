@@ -149,6 +149,29 @@
 
 ---
 
+## 改写所有 Skills（重要！）
+
+`auto-review-loop-llm` 只是一个 skill 的通用 LLM 版。项目中有 **12 个 skill** 使用 Codex MCP (`mcp__codex__codex`) 调用 GPT-5.4 做审查。如果你想全面切换到其他模型，需要让 Claude Code 把它们全部改写。
+
+安装完 `llm-chat` MCP 服务器后，在 Claude Code 对话中执行：
+
+```
+Read skills/auto-review-loop-llm/SKILL.md as a reference.
+It replaces mcp__codex__codex with mcp__llm-chat__chat.
+Now rewrite ALL other skills that use mcp__codex__codex / mcp__codex__codex-reply
+to use mcp__llm-chat__chat instead, following the same pattern.
+```
+
+Claude Code 会自动：
+
+1. 扫描所有 skill 文件，找到使用 Codex MCP 的地方
+2. 参考 `auto-review-loop-llm` 的写法（MCP 优先 + curl fallback）
+3. 逐个改写到你本地的 `~/.claude/skills/` 目录
+
+> ⚠️ **注意：** 这只修改你本地的 skill 副本，不影响仓库原文件。想恢复默认？重新 `cp -r skills/* ~/.claude/skills/` 即可。
+
+---
+
 ## 常见问题
 
 ### Q: 为什么不用 Codex MCP？
